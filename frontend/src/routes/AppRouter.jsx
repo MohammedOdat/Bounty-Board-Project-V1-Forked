@@ -14,19 +14,17 @@ import CompleteProfile from "../pages/CompleteProfile";
 
 const AppRouter = () => {
   return (
-    <Router>
       <Routes>
-        {/* Define Routes */}
-        <Route path="/" element={<Navigate to="/login" />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/complete-profile" element={<CompleteProfile />} />
+      {/* Define Routes */}
+      <Route path="/" element={<Navigate to="/login" />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/complete-profile" element={<CompleteProfile />} />
 
-        {/* Fallback route for unmatched URLs */}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Router>
+      {/* Fallback route for unmatched URLs */}
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 };
 

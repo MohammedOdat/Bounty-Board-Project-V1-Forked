@@ -28,6 +28,19 @@ const getUserProfile = async (req, res) => {
 // Complete User Profile
 const completeUserProfile = async (req, res) => {
   try {
+    // Fetch the user to check the current profile status
+    const user = await User.findByPk(req.user.id);
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    if (user.profileCompleted) {
+      return res.status(400).json({
+        message: "Profile is already completed. No further action is needed.",
+      });
+    }
+
     const { password } = req.body;
 
     if (!password) {
@@ -55,6 +68,7 @@ const completeUserProfile = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
 
 // Update User Profile
 const updateUserProfile = async (req, res) => {

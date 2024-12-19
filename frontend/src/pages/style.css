@@ -1,0 +1,9 @@
+.page-sections{
+    display: flex;
+flex-direction: column;
+gap: 100px;
+}
+.middle-section{
+    display: flex;
+    justify-content: space-around;
+}
